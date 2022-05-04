@@ -46,7 +46,6 @@ def process_results(news_list):
     '''
     news_results = []
     for item in news_list:
-        # id = item.get('id')
         author = item.get('author')
         description = item.get('description')
         time = item.get('time')
@@ -59,3 +58,22 @@ def process_results(news_list):
             news_results.append(news_object)
 
     return news_results
+
+
+def get_category(categ_name):
+    '''
+    function that gets the response to the category json
+    '''
+    get_category_url = base_url.format(categ_name,api_key)
+    print(get_category_url)
+    with urllib.request.urlopen(get_category_url) as url:
+        get_category_data = url.read()
+        get_cartegory_response = json.loads(get_category_data)
+
+        get_cartegory_results = None
+
+        if get_cartegory_response['articles']:
+            get_cartegory_list = get_cartegory_response['articles']
+            get_cartegory_results = process_results(get_cartegory_list)
+
+    return get_cartegory_results
