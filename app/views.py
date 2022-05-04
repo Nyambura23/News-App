@@ -13,6 +13,7 @@ def index():
 
         # Getting general news
     general_news = get_news('general')
+    # sports_news = get_news('sports')
     # print(general_news)
     
     return render_template('index.html', general = general_news)
