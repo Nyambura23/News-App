@@ -13,7 +13,8 @@ def index():
 
         # Getting general news
     general_news = get_news('general')
-    # sports_news = get_news('sports')
+    entertainment_news = get_news('entertainment')
+    sports_news = get_news('sports')
     # print(general_news)
     
-    return render_template('index.html', general = general_news)
+    return render_template('index.html', general = general_news, entertainment = entertainment_news,sports = sports_news)

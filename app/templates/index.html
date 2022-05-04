@@ -1,23 +1,33 @@
 {% import 'macros.html' as macro%}
 
 
-<!-- <h1> {{ message}} </h1>
-
-  <!-General news section  -->
-  <!-- <h3> General news</h3>
+<!-- <h1> {{ message}} </h1> -->
+<body>
+  <!-- <!-General news section  --> 
+  <h3> General news</h3>
    <ul>
       {% for general_news in general %}
           <li>{{ general_news.title}}</li>
           <p>{{ general_news.description}}</p>
       {% endfor %}
-  </ul> --> 
+  </ul> 
 
-    <!-- Sports news section 
-    <h3> Sports news</h3>
-    <ul>
-       {% for sports_news in sports %}
-           <li>{{ sports_news.title}}</li>
-           <p>{{ sports_news.description}}</p>
-       {% endfor %}
-   </ul> -->
 
+       <!-- Entertainment news section -->
+       <h3> Entertainment news</h3>
+       <ul>
+          {% for entertainment_news in sports %}
+              <li>{{ entertainment_news.title}}</li>
+              <p>{{ entertainment_news.description}}</p>
+          {% endfor %}
+      </ul>  
+
+          <!-- Sports news section -->
+     <h3> Sports news</h3>
+     <ul>
+        {% for sports_news in sports %}
+            <li>{{ sports_news.title}}</li>
+            <p>{{ sports_news.description}}</p>
+        {% endfor %}
+    </ul>  
+  </body>
