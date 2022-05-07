@@ -1,11 +1,9 @@
-
-# from pickle import APPEND
 from flask import render_template,request,redirect,url_for
-from  app import app
+from  . import main
 from ..request import  get_news, get_category, search_article
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     '''
@@ -30,7 +28,7 @@ def index():
 
 #     return render_template('source.html', article_display=article_display,title=title )
     
-@app.route('/categories/<categ_name>')
+@main.route('/categories/<categ_name>')
 def category(categ_name):
     '''
     function to return the categories.html page and its content
@@ -42,7 +40,7 @@ def category(categ_name):
     return render_template('categories.html',title = title,category = category, cate= categ_name)
 
 
-@app.route('/search/<news_name>')
+@main.route('/search/<news_name>')
 def search(news_name):
     '''
     View function to display the search results
