@@ -78,3 +78,20 @@ def get_category(categ_name):
             get_cartegory_results = process_results(get_cartegory_list)
 
     return get_cartegory_results
+
+
+def search_news(news_name):
+    search_news_url = 'https://newsapi.org/v2/everything?q={}&from=2022-04-30&language=en&sortBy=publishedAt&apiKey={}'.format(news_name,api_key)
+    with urllib.request.urlopen(search_news_url) as url:
+        search_news_data = url.read()
+        search_news_response = json.loads(search_news_data)
+
+        search_news_results = None
+
+        if search_news_response['articles']:
+            search_news_list = search_news_response['articles']
+            search_news_results = process_results(search_news_list)
+
+
+    return search_news_results
+
