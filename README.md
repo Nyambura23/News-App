@@ -26,7 +26,9 @@ Run "chmod +x start.sh" to make the start.sh file executable then run "./start.s
 ## Behaviour Driven Development
 
 The landing page contains a navbar, a search function and general news
+
 The Navbar contains different categories of news
+
 The search function allows users to search for news using key words
 
 
