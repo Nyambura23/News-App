@@ -58,6 +58,35 @@ def process_results(news_list):
 
     return news_results
 
+# def get_article_by_source(source_name):
+#     get_source_article_url = 'https://newsapi.org/v2/top-headlines?sources={}&apiKey={}'.format(source_name,api_key)
+#     print(get_source_article_url)
+#     with urllib.request.urlopen(get_source_article_url) as url:
+#         get_data = url.read()
+#         get_response = json.loads(get_data)
+
+#         results = None
+#         if get_response['articles']:
+#             results_list = get_response['articles']
+#             results = process_results(results_list)
+#     return results
+
+# def process_results(articles_list):
+#     articles_results = []
+#     for article in articles_list:
+#         author = article.get('author')
+#         title = article.get('title')
+#         description = article.get('description')
+#         url = article.get('url')
+#         urlToImage = article.get('urlToImage')
+#         publishedAt = article.get('publisheAt')
+#         content = article.get('content')
+        
+#         if urlToImage:
+#             article_object = News(author,title,description,url,urlToImage,publishedAt,content)
+#             articles_results.append(article_object)
+
+#     return articles_results
 
 
 
@@ -80,18 +109,18 @@ def get_category(categ_name):
     return get_cartegory_results
 
 
-def search_news(news_name):
-    search_news_url = 'https://newsapi.org/v2/everything?q={}&from=2022-04-30&language=en&sortBy=publishedAt&apiKey={}'.format(news_name,api_key)
-    with urllib.request.urlopen(search_news_url) as url:
-        search_news_data = url.read()
-        search_news_response = json.loads(search_news_data)
+def search_article(article_name):
+    article_news_url = 'https://newsapi.org/v2/top-headlines?country=us&category={}&apiKey={}'.format(article_name,api_key)
+    with urllib.request.urlopen(article_news_url) as url:
+        search_article_data = url.read()
+        search_article_response = json.loads(search_article_data)
 
-        search_news_results = None
+        search_article_results = None
 
-        if search_news_response['articles']:
-            search_news_list = search_news_response['articles']
-            search_news_results = process_results(search_news_list)
+        if search_article_response['articles']:
+            search_article_list = search_article_response['articles']
+            search_article_results = process_results(search_article_list)
 
 
-    return search_news_results
+    return search_article_results
 
