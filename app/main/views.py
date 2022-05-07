@@ -2,7 +2,7 @@
 # from pickle import APPEND
 from flask import render_template,request,redirect,url_for
 from  app import app
-from .request import  get_news, get_category, search_article
+from ..request import  get_news, get_category, search_article
 
 # Views
 @app.route('/')
