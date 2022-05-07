@@ -1,62 +1,43 @@
 {% extends 'base.html'%}
 {% import 'macros.html' as macro%}
 
-<!-- Styles block -->
-
-{% block styles%}
-    {{ super() }}
-    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}">
-{% endblock %}
-
-<!-- Content block -->
 {% block content %}
 
+<!-- <div class="container">
+    <form>
+        <input type="text" name="news_query" placeholder="Search for a Movie" class="form-control">
+        <input type="submit"  value="Submit" class="btn btn-default">
+    </form>
+
+</div> -->
+
+<!-- <div class="main">
+    <div class="container-fluid">
+      <div class="row">
+
+        <div class="col-3">
+          <div class="card-column">
+            <div class="card-header">
+              <h4>Browse News Sources</h4>
+            </div>
+            <div class="list-group list-group-flush scrolly">
+              <ul>
+                {% for source in sources %}
+                <a href="/article/{{source.id}}">
+                  <p class="text-capitalize text-muted">{{source.id}}</p>
+                </a>
+                {% endfor %}
+              </ul>
+            </div>
+
+          </div>
+        </div> -->
+
 <!-- Popular News -->
-<h3> General news</h3>
+<h3 style="text-align: center;"> General news</h3>
 <ul>
     {{ macro.displayNewsList(general)}}
-</ul>
-<!-- Upcoming News  -->
-<h3> Entertainment news </h3>
-<ul>
-    {{ macro.displayNewsList(entertainment)}}
-</ul>
-<!-- Now showing News-->
-<h3>Sports news</h3>
-<ul>
-    {{ macro.displayNewsList(sports)}}
 </ul>
 
 
 {% endblock%}
-
-<!-- <h1> {{ message}} </h1> -->
-<!-- <body> -->
-  <!-- <!-General news section  --> 
-  <!-- <h3> General news</h3>
-   <ul>
-      {% for general_news in general %}
-          <li>{{ general_news.title}}</li>
-          <p>{{ general_news.description}}</p>
-      {% endfor %}
-  </ul>  -->
-
-
-       <!-- Entertainment news section -->
-       <!-- <h3> Entertainment news</h3>
-       <ul>
-          {% for entertainment_news in sports %}
-              <li>{{ entertainment_news.title}}</li>
-              <p>{{ entertainment_news.description}}</p>
-          {% endfor %}
-      </ul>   -->
-
-          <!-- Sports news section -->
-     <!-- <h3> Sports news</h3>
-     <ul>
-        {% for sports_news in sports %}
-            <li>{{ sports_news.title}}</li>
-            <p>{{ sports_news.description}}</p>
-        {% endfor %}
-    </ul>  
-  </body> -->

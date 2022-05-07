@@ -1,4 +1,4 @@
-from email.mime import image
+
 from app import app 
 import urllib.request,json
 from .models import news
@@ -33,7 +33,6 @@ def get_news(category):
 
     return news_results
 
-
 def process_results(news_list):
     '''
     Function  that processes the news result and transform them to a list of Objects
@@ -45,19 +44,21 @@ def process_results(news_list):
         news_results: A list of news objects
     '''
     news_results = []
-    for item in news_list:
-        author = item.get('author')
-        description = item.get('description')
-        time = item.get('time')
-        url = item.get('url')
-        image = item.get('image')
-        title = item.get('title')
+    for news_item in news_list:
+        author = news_item.get('author')
+        description = news_item.get('description')
+        time = news_item.get('publishedAt')
+        url = news_item.get('url')
+        image = news_item.get('urlToImage')
+        title = news_item.get('title')
 
-        if description:
+        if url:
             news_object = News(author,description,time,url,image,title)
             news_results.append(news_object)
 
     return news_results
+
+
 
 
 def get_category(categ_name):
