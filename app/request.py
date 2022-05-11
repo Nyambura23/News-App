@@ -54,9 +54,9 @@ def process_results(news_list):
         content = news_item.get('content')
       
         
-    if url:
-        news_object = News(author,title,description,url,time,image,content)
-        news_results.append(news_object)
+        if url:
+         news_object = News(author,title,description,url,time,image,content)
+         news_results.append(news_object)
         # print(news_results)
 
     return news_results
