@@ -2,7 +2,7 @@
 
     {% for news in news_list %}
 
-    <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 news-card">
+     <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 news-card">
       <img src="{{ news.image }}" alt="{{ news.title }} poster" class="img-responsive">
       <p class="text-center">
           <a href="{{news.url}}">
@@ -10,7 +10,9 @@
           </p>
   </div>
 
-    {% endfor %}
+
+        {% endfor %}
+    
 
 {% endmacro %}
 

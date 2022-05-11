@@ -2,6 +2,7 @@ from flask import render_template,request,redirect,url_for
 from  . import main
 from ..request import *
 
+
 # Views
 @main.route('/')
 def index():
@@ -21,12 +22,13 @@ def index():
     else:
         return render_template('index.html', general = general_news )
 
-# @main.route('/sources')
-# def sources():
-#     all_sources = get_sources()
+@main.route('/source/<source_name>')
+def source(source_name):
+    article_display = get_article_by_source(source_name)
+    title = source_name.upper()
 
-#     return render_template('sources.html',all_sources=all_sources)
-    
+    return render_template('source.html', article_display=article_display,title=title )
+
 @main.route('/categories/<categ_name>')
 def category(categ_name):
     '''
